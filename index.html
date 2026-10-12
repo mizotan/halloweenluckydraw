@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloween lucky draw - Information</title>
+  <style>
+    :root {
+      --bg-color: #120822;
+      --accent-orange: #ff7518;
+      --header-grad: linear-gradient(135deg, #ff8c38, #d85c00);
+      --text-gold: #ffd166;
+      --text-light: #f8f9fa;
+      --panel-bg: rgba(30, 15, 51, 0.9);
+      --input-border: #5a4b70;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      background-color: var(--bg-color);
+      background-image: url('16_9.png');
+      background-size: cover;
+      background-position: center top;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      color: var(--text-light);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* アプリの設定画面風スクロールバー */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e0f33; 
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-orange); 
+      border-radius: 4px;
+      border: 2px solid #1e0f33;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e06612;
+    }
+
+    .wrap {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 16px 60px;
+    }
+
+    /* ロゴ・ヘッダー部分 */
+    .brand-header {
+      text-align: center;
+      margin-bottom: 30px;
+      background: var(--panel-bg);
+      padding: 30px 20px;
+      border-radius: 24px;
+      border: 2px solid var(--input-border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+    .brand-logo {
+      width: 120px;
+      height: 120px;
+      max-width: 100%;
+      object-fit: contain;
+      display: inline-block;
+      border-radius: 24px;
+      margin-bottom: 12px;
+      background: rgba(0,0,0,0.3);
+      padding: 8px;
+      border: 2px solid var(--accent-orange);
+      box-shadow: 0 4px 12px rgba(255, 117, 24, 0.4);
+    }
+    .brand-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--accent-orange);
+      text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 0 4px 8px rgba(0,0,0,0.6);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .brand-desc {
+      font-size: 1.1rem;
+      color: var(--text-gold);
+      font-weight: bold;
+    }
+    .brand-desc-sub {
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-top: 4px;
+    }
+
+    /* 各セクション */
+    section {
+      margin-top: 24px;
+      background: var(--panel-bg);
+      padding: 24px 20px;
+      border-radius: 20px;
+      border: 2px solid var(--input-border);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+    
+    h2 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--text-light);
+      padding-bottom: 10px;
+      border-bottom: 2px dashed var(--input-border);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+      color: var(--accent-orange);
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    h3:first-child {
+      margin-top: 0;
+    }
+    
+    p, ul, ol {
+      font-size: 14px;
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+    ul, ol {
+      margin-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+
+    .note {
+      background: rgba(255, 117, 24, 0.15);
+      border-left: 4px solid var(--accent-orange);
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      color: #ffb880;
+      font-size: 12px;
+      margin-top: 16px;
+      line-height: 1.5;
+      display: block;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      color: #888;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ヘッダー -->
+    <header class="brand-header">
+      <img src="512x512.png" alt="Halloween lucky draw" class="brand-logo">
+      <h1 class="brand-title">Halloween<br>lucky draw</h1>
+      <p class="brand-desc">トリック・オア・トリート</p>
+      <p class="brand-desc-sub">Trick or Treat / Dulce o Truco / Doces ou Travessuras</p>
+    </header>
+
+    <!-- 日本語 (Japanese) -->
+    <section>
+      <h2>🇯🇵 日本語 (Japanese)</h2>
+      
+      <h3>使い方</h3>
+      <ol>
+        <li>「ぼたん」をお子様にタップしてもらいます。</li>
+        <li>お菓子が出たらプレゼント、いたずらが出たらチャレンジ！</li>
+        <li>チェックボックス(☑)で一時的にアイテムを無効にできます。</li>
+      </ol>
+
+      <h3>利用規約・免責事項</h3>
+      <ul>
+        <li>必ず大人の目の届く範囲でご使用ください。</li>
+        <li>本アプリによるトラブルについて開発者は責任を負いかねます。</li>
+      </ul>
+
+      <h3>プライバシーポリシー</h3>
+      <ul>
+        <li>個人情報は外部に一切送信されません。</li>
+      </ul>
+      <span class="note">※本アプリ内に表示されるバナー広告のリンク先における内容や提供サービス、遷移先で生じたトラブル等につきまして、開発者は一切の責任を負いかねます。</span>
+    </section>
+
+    <!-- 英語 (English) -->
+    <section>
+      <h2>🇺🇸 English</h2>
+      
+      <h3>How to Use</h3>
+      <ol>
+        <li>Let the child tap the draw button.</li>
+        <li>Treats: Hand out sweet! Tricks: Do the challenge!</li>
+        <li>Use checkboxes (☑) to temporarily disable items.</li>
+      </ol>
+
+      <h3>Terms of Service</h3>
+      <ul>
+        <li>Adult supervision required.</li>
+        <li>Developer assumes no responsibility for incidents.</li>
+      </ul>
+
+      <h3>Privacy Policy</h3>
+      <ul>
+        <li>No personal data transmitted.</li>
+      </ul>
+      <span class="note">* The developer assumes no responsibility for the content, services, or issues arising from third-party websites accessed via banner ads.</span>
+    </section>
+
+    <!-- 中南米スペイン語 (Español) -->
+    <section>
+      <h2>🌎 Español (Latinoamérica)</h2>
+      
+      <h3>Cómo Usar</h3>
+      <ol>
+        <li>Toque el botón principal.</li>
+        <li>Dulces: ¡Entrega el premio! Retos: ¡Haz la broma!</li>
+        <li>Usa las casillas (☑) para desactivar artículos temporalmente.</li>
+      </ol>
+
+      <h3>Términos de Servicio</h3>
+      <ul>
+        <li>Requiere supervisión de un adulto.</li>
+        <li>El desarrollador no asume responsabilidad.</li>
+      </ul>
+
+      <h3>Privacidad</h3>
+      <ul>
+        <li>No se transmiten datos personales.</li>
+      </ul>
+      <span class="note">* El desarrollador no asume ninguna responsabilidad por el contenido o problemas en sitios de terceros a los que se acceda a través de anuncios.</span>
+    </section>
+
+    <!-- ブラジルポルトガル語 (Português) -->
+    <section>
+      <h2>🇧🇷 Português (Brasil)</h2>
+      
+      <h3>Como Usar</h3>
+      <ol>
+        <li>Toque no botão principal.</li>
+        <li>Doces: Entregue o prêmio! Desafios: Faça a brincadeira!</li>
+        <li>Use as caixas (☑) para desativar itens temporariamente.</li>
+      </ol>
+
+      <h3>Termos de Serviço</h3>
+      <ul>
+        <li>Supervisão de adultos necessária.</li>
+        <li>O desenvolvedor não se responsabiliza por incidentes.</li>
+      </ul>
+
+      <h3>Privacidade</h3>
+      <ul>
+        <li>Nenhum dado pessoal é transmitido.</li>
+      </ul>
+      <span class="note">* O desenvolvedor não assume responsabilidade por conteúdo ou problemas em sites de terceiros acessados através de anúncios no aplicativo.</span>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+      &copy; 2026 BONSAI PROJECT All Rights Reserved.
+    </footer>
+
+  </div>
+</body>
+</html>
