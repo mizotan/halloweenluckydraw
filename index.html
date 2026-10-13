@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halloween lucky draw - Information</title>
+  <title>Halloween lucky draw（ハロウィンくじ）— BONSAI PROJECT</title>
   <style>
     :root {
-      --bg-color: #120822;
+      --bg-color: #0d051a;
       --accent-orange: #ff7518;
-      --header-grad: linear-gradient(135deg, #ff8c38, #d85c00);
-      --text-gold: #ffd166;
-      --text-light: #f8f9fa;
-      --panel-bg: rgba(30, 15, 51, 0.9);
-      --input-border: #5a4b70;
+      --accent-gold: #ffd166;
+      --accent-purple: #b565ff;
+      --text-light: #f8f5fc;
+      --text-muted: #cbbce0;
+      --panel-bg: rgba(22, 10, 40, 0.76);
+      --card-bg: rgba(38, 18, 66, 0.65);
+      --border-glow: rgba(255, 140, 56, 0.38);
+      --border-subtle: rgba(181, 101, 255, 0.28);
     }
 
     * {
@@ -20,257 +23,865 @@
       margin: 0;
       padding: 0;
     }
-    
+
     html, body {
       background-color: var(--bg-color);
-      background-image: url('16_9.png');
+      background-image:
+        radial-gradient(circle at 50% 15%, rgba(255, 117, 24, 0.12), transparent 60%),
+        url('16_9.png');
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
       background-repeat: no-repeat;
       color: var(--text-light);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
-      line-height: 1.6;
-      font-size: 15px;
+      line-height: 1.7;
+      font-size: 14.5px;
     }
 
-    /* アプリの設定画面風スクロールバー */
+    /* ハロウィン仕様のカスタムスクロールバー */
     ::-webkit-scrollbar {
-      width: 10px;
+      width: 9px;
+      background: #0d051a;
     }
     ::-webkit-scrollbar-track {
-      background: #1e0f33; 
-      border-radius: 4px;
+      background: #140826;
+      border-left: 1px solid rgba(255, 117, 24, 0.2);
     }
     ::-webkit-scrollbar-thumb {
-      background: var(--accent-orange); 
-      border-radius: 4px;
-      border: 2px solid #1e0f33;
+      background: linear-gradient(180deg, #ff8c38, #d85c00);
+      border-radius: 5px;
+      border: 1px solid #ffd166;
+      box-shadow: 0 0 8px rgba(255, 117, 24, 0.5);
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #e06612;
+      background: #ff9d52;
     }
 
     .wrap {
       max-width: 700px;
       margin: 0 auto;
-      padding: 30px 16px 60px;
+      padding: 36px 18px 64px;
     }
 
-    /* ロゴ・ヘッダー部分 */
+    /* ヒーローヘッダー（すりガラス調） */
     .brand-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       background: var(--panel-bg);
-      padding: 30px 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 32px 22px 28px;
       border-radius: 24px;
-      border: 2px solid var(--input-border);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
+
     .brand-logo {
-      width: 120px;
-      height: 120px;
+      width: 116px;
+      height: 116px;
       max-width: 100%;
       object-fit: contain;
       display: inline-block;
-      border-radius: 24px;
-      margin-bottom: 12px;
-      background: rgba(0,0,0,0.3);
+      border-radius: 26px;
+      margin-bottom: 14px;
+      background: rgba(10, 4, 20, 0.55);
       padding: 8px;
-      border: 2px solid var(--accent-orange);
-      box-shadow: 0 4px 12px rgba(255, 117, 24, 0.4);
+      border: 2px solid rgba(255, 140, 56, 0.75);
+      box-shadow: 0 0 20px rgba(255, 117, 24, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
+    .brand-logo:hover {
+      transform: scale(1.04) rotate(-2deg);
+      box-shadow: 0 0 28px rgba(255, 165, 50, 0.75);
+    }
+
     .brand-title {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 900;
-      color: var(--accent-orange);
-      text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 0 4px 8px rgba(0,0,0,0.6);
-      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+      background: linear-gradient(180deg, #fff3d1 0%, #ffd166 40%, #ff7518 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 14px rgba(255, 117, 24, 0.4));
+      margin-bottom: 6px;
       line-height: 1.2;
     }
-    .brand-desc {
-      font-size: 1.1rem;
-      color: var(--text-gold);
+
+    .brand-catch {
+      font-size: 1.05rem;
+      color: var(--accent-gold);
       font-weight: bold;
+      letter-spacing: 0.04em;
     }
-    .brand-desc-sub {
-      font-size: 0.85rem;
-      color: #bbb;
+
+    .brand-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
       margin-top: 4px;
     }
 
-    /* 各セクション */
-    section {
-      margin-top: 24px;
-      background: var(--panel-bg);
-      padding: 24px 20px;
-      border-radius: 20px;
-      border: 2px solid var(--input-border);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    /* 安心・特徴ミニバッジ群 */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
     }
-    
-    h2 {
-      font-size: 1.3rem;
+    .trust-pill {
+      font-size: 11px;
+      color: #ffe3a8;
+      background: rgba(255, 117, 24, 0.16);
+      border: 1px solid rgba(255, 209, 102, 0.4);
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.03em;
+    }
+
+    /* リリースステータス・ストアボタン */
+    .status-area {
+      margin-top: 18px;
+    }
+    .badge-status {
+      display: inline-block;
+      font-size: 12px;
       font-weight: bold;
-      color: var(--text-light);
+      letter-spacing: 0.05em;
+      border: 1px solid var(--accent-gold);
+      padding: 6px 16px;
+      border-radius: 999px;
+      color: var(--accent-gold);
+      background: rgba(15, 6, 28, 0.85);
+      box-shadow: 0 0 12px rgba(255, 117, 24, 0.35);
+    }
+    .store-btn {
+      display: inline-block;
+      font-size: 13.5px;
+      font-weight: bold;
+      color: #1a0826;
+      background: linear-gradient(135deg, #ffd166, #ff7518);
+      padding: 9px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(255, 117, 24, 0.55);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .store-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 160, 50, 0.8);
+    }
+
+    /* 4言語切り替えタブバー */
+    .lang-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 520px) {
+      .lang-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .lang-tab-btn {
+      background: rgba(22, 10, 40, 0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 10px 8px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .lang-tab-btn:hover {
+      border-color: var(--accent-orange);
+      color: #fff;
+    }
+    .lang-tab-btn.active {
+      background: linear-gradient(135deg, rgba(255, 117, 24, 0.32), rgba(181, 101, 255, 0.25));
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      box-shadow: 0 0 14px rgba(255, 117, 24, 0.35);
+    }
+
+    /* 言語別コンテンツペイン */
+    .lang-pane {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+    .lang-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* パネル共通スタイル */
+    .panel {
+      background: var(--panel-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 24px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .panel h2 {
+      font-size: 1.15rem;
+      color: var(--accent-gold);
       padding-bottom: 10px;
-      border-bottom: 2px dashed var(--input-border);
+      border-bottom: 1px dashed rgba(255, 209, 102, 0.35);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    
-    h3 {
-      font-size: 1.1rem;
-      color: var(--accent-orange);
-      margin-top: 20px;
-      margin-bottom: 8px;
-    }
-    h3:first-child {
-      margin-top: 0;
-    }
-    
-    p, ul, ol {
-      font-size: 14px;
-      color: #ddd;
-      margin-bottom: 12px;
-    }
-    ul, ol {
-      margin-left: 24px;
-    }
-    li {
-      margin-bottom: 8px;
+
+    .lead-text {
+      font-size: 14.5px;
+      color: var(--text-light);
+      margin-bottom: 18px;
     }
 
-    .note {
-      background: rgba(255, 117, 24, 0.15);
-      border-left: 4px solid var(--accent-orange);
-      padding: 10px 14px;
-      border-radius: 0 8px 8px 0;
-      color: #ffb880;
+    /* 🍬 TREAT & 👻 TRICK 2カラム見せ場カード */
+    .tt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 540px) {
+      .tt-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tt-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .tt-card.treat {
+      border-color: rgba(255, 180, 50, 0.45);
+      box-shadow: inset 0 0 18px rgba(255, 140, 24, 0.12);
+    }
+    .tt-card.trick {
+      border-color: rgba(181, 101, 255, 0.45);
+      box-shadow: inset 0 0 18px rgba(181, 101, 255, 0.12);
+    }
+    .tt-card-title {
+      font-size: 1rem;
+      font-weight: bold;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tt-card.treat .tt-card-title {
+      color: var(--accent-gold);
+    }
+    .tt-card.trick .tt-card-title {
+      color: #d8a8ff;
+    }
+    .tt-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* 使い方＆スマート調整ステップ */
+    .step-list {
+      list-style: none;
+      margin: 0;
+    }
+    .step-list li {
+      position: relative;
+      padding: 12px 14px 12px 46px;
+      background: rgba(15, 6, 28, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      color: var(--text-light);
+    }
+    .step-list li:last-child {
+      margin-bottom: 0;
+    }
+    .step-num {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff8c38, #d85c00);
+      color: #fff;
+      font-weight: bold;
       font-size: 12px;
-      margin-top: 16px;
-      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(255, 117, 24, 0.4);
+    }
+    .step-sub {
       display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* 保護者・主催者向け安心ガイド枠 */
+    .safety-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .safety-item {
+      background: rgba(15, 6, 28, 0.5);
+      border-left: 3px solid var(--accent-gold);
+      padding: 10px 14px;
+      border-radius: 0 10px 10px 0;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .safety-item strong {
+      color: var(--accent-gold);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .ad-note {
+      background: rgba(255, 117, 24, 0.12);
+      border: 1px dashed rgba(255, 140, 56, 0.45);
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: #ffca99;
+      font-size: 12px;
+      margin-top: 14px;
+      line-height: 1.55;
+    }
+
+    /* 最新情報（UPDATES）セクション */
+    .news-list {
+      list-style: none;
+    }
+    .news-list li {
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .news-list li:first-child {
+      padding-top: 0;
+    }
+    .news-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .news-date {
+      color: var(--accent-gold);
+      font-weight: bold;
+      margin-right: 8px;
+      font-size: 12px;
+    }
+    .news-sub-en {
+      display: block;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .inline-link {
+      color: var(--accent-gold);
+      text-decoration: none;
+      border: 1px solid rgba(255, 209, 102, 0.55);
+      padding: 1px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      margin-left: 6px;
+      display: inline-block;
+      background: rgba(15, 6, 28, 0.8);
+      transition: all 0.15s ease;
+    }
+    .inline-link:hover {
+      background: var(--accent-orange);
+      color: #000;
+      border-color: var(--accent-orange);
+    }
+
+    /* 盆栽企画ポータル・リーガル・連絡先 */
+    .links-list {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+    .links-list li {
+      margin-bottom: 10px;
+    }
+    .link-btn {
+      color: var(--accent-gold);
+      text-decoration: none;
+      border: 1px solid rgba(255, 209, 102, 0.5);
+      padding: 9px 16px;
+      display: inline-block;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: bold;
+      background: rgba(15, 6, 28, 0.75);
+      transition: all 0.15s ease;
+    }
+    .link-btn:hover {
+      background: rgba(255, 117, 24, 0.25);
+      border-color: var(--accent-orange);
+      box-shadow: 0 0 12px rgba(255, 117, 24, 0.4);
+    }
+
+    .studio-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .studio-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .contact-info {
+      font-size: 12.5px;
+      color: var(--accent-gold);
+      padding: 9px 14px;
+      border: 1px dashed rgba(255, 209, 102, 0.4);
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 14px;
+      background: rgba(15, 6, 28, 0.5);
+    }
+
+    /* 下部：多言語サブページリンク用スペース（囲みなし・随時追加可能） */
+    .lang-space {
+      margin-top: 40px;
+      padding: 8px 4px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+    .lang-space-label {
+      color: var(--accent-gold);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .lang-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-right: 12px;
+      display: inline-block;
+      transition: color 0.15s ease;
+    }
+    .lang-links a:hover {
+      color: var(--accent-gold);
+      text-decoration: underline;
     }
 
     footer {
-      margin-top: 40px;
-      padding: 20px;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
       text-align: center;
-      color: #888;
-      font-size: 12px;
-      font-weight: bold;
+      color: var(--text-muted);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <!-- ヘッダー -->
+    <!-- ヒーローヘッダー -->
     <header class="brand-header">
       <img src="512x512.png" alt="Halloween lucky draw" class="brand-logo">
-      <h1 class="brand-title">Halloween<br>lucky draw</h1>
-      <p class="brand-desc">トリック・オア・トリート</p>
-      <p class="brand-desc-sub">Trick or Treat / Dulce o Truco / Doces ou Travessuras</p>
+      <h1 class="brand-title">Halloween lucky draw</h1>
+      <p class="brand-catch">トリック・オア・トリート！カスタムおみくじ</p>
+      <p class="brand-sub">Trick or Treat / ¡Dulce o Truco! / Doces ou Travessuras!</p>
+
+      <div class="trust-badges">
+        <span class="trust-pill">🍬 Custom Items OK</span>
+        <span class="trust-pill">☑ Instant ON/OFF Control</span>
+        <span class="trust-pill">🛡️ No Data Collected</span>
+      </div>
+
+      <!-- ★リリース段階に応じて以下の表示・リンクを切り替えてください -->
+      <div class="status-area">
+        <!-- 1. 現在（リリース前） -->
+        <span class="badge-status">🎃 Google Play Release: Coming Soon</span>
+
+        <!-- 2. クローズドβ版リリース時（使う時はコメントアウトを解除） -->
+        <!--
+        <a class="store-btn" href="https://play.google.com/apps/testing/パッケージ名">
+          ▶ Closed Beta Access (クローズドβ版)
+        </a>
+        -->
+
+        <!-- 3. 本リリース時（使う時はコメントアウトを解除） -->
+        <!--
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=パッケージ名">
+          ▶ Get it on Google Play
+        </a>
+        -->
+      </div>
     </header>
 
-    <!-- 日本語 (Japanese) -->
-    <section>
-      <h2>🇯🇵 日本語 (Japanese)</h2>
-      
-      <h3>使い方</h3>
-      <ol>
-        <li>「ぼたん」をお子様にタップしてもらいます。</li>
-        <li>お菓子が出たらプレゼント、いたずらが出たらチャレンジ！</li>
-        <li>チェックボックス(☑)で一時的にアイテムを無効にできます。</li>
-      </ol>
+    <!-- 4言語切り替えタブ（日 / 英 / 中南米スペイン語 / ブラジルポルトガル語） -->
+    <nav class="lang-tabs" aria-label="Language selector">
+      <button type="button" class="lang-tab-btn active" onclick="switchLang('ja', this)">🇯🇵 日本語</button>
+      <button type="button" class="lang-tab-btn" onclick="switchLang('en', this)">🇺🇸 English</button>
+      <button type="button" class="lang-tab-btn" onclick="switchLang('es', this)">🌎 Español</button>
+      <button type="button" class="lang-tab-btn" onclick="switchLang('pt', this)">🇧🇷 Português</button>
+    </nav>
 
-      <h3>利用規約・免責事項</h3>
-      <ul>
-        <li>必ず大人の目の届く範囲でご使用ください。</li>
-        <li>本アプリによるトラブルについて開発者は責任を負いかねます。</li>
-      </ul>
+    <!-- ==========================================
+         1. 日本語 (Japanese)
+         ========================================== -->
+    <div id="pane-ja" class="lang-pane active">
+      <section class="panel">
+        <h2>🎃 パーティーが盛り上がる！ハロウィンおみくじ</h2>
+        <p class="lead-text">
+          ボタンをタップするだけで「お菓子（あたり）」か「いたずら（ミニチャレンジ）」が飛び出す、ワクワク感たっぷりのハロウィン抽選アプリです。おうちのパーティーやイベントに合わせて、出る内容を自由にカスタマイズできます。
+        </p>
 
-      <h3>プライバシーポリシー</h3>
-      <ul>
-        <li>個人情報は外部に一切送信されません。</li>
+        <div class="tt-grid">
+          <div class="tt-card treat">
+            <div class="tt-card-title">🍬 お菓子 (TREAT!)</div>
+            <p>「チョコ1個！」「キャンディ2個！」など、用意したお菓子をプレゼント。お子様が笑顔になるあたり枠です。</p>
+          </div>
+          <div class="tt-card trick">
+            <div class="tt-card-title">👻 いたずら (TRICK!)</div>
+            <p>「おばけの変顔をする！」「好きなポーズで写真を撮る！」など、みんなで盛り上がれる可愛いミニチャレンジ枠です。</p>
+          </div>
+        </div>
+
+        <h2>✨ かんたん3ステップの使い方</h2>
+        <ol class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <strong>お子様に「ぼたん」をタップしてもらいます</strong>
+            <span class="step-sub">複雑な操作は一切なし。ワンタップでドキドキの抽選がスタート！</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>お菓子が出たらプレゼント、いたずらが出たらチャレンジ！</strong>
+            <span class="step-sub">何が出るかわからないワクワク感で、お菓子配りが特別なイベントに変わります。</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>チェックボックス (☑) で出目のON/OFFをいつでも調整</strong>
+            <span class="step-sub">「特定のお菓子が途中でなくなった」「小さい子にはこのお題をパスしたい」という時も、リストのチェックを外すだけで一時的に除外できます。</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>🛡️ ご利用ガイド・プライバシー設計</h2>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <strong>安心のクリーン設計（個人情報送信なし）</strong>
+            アカウント登録は不要で、端末内の個人情報やデータが外部へ送信されることは一切ありません。
+          </div>
+          <div class="safety-item">
+            <strong>ご利用時のご注意（免責事項）</strong>
+            お子様が遊ばれる際は、必ず大人の目の届く範囲でご使用ください。本アプリの使用により生じたトラブル等について、開発者は責任を負いかねます。
+          </div>
+        </div>
+        <div class="ad-note">
+          ※本アプリ内に表示されるバナー広告のリンク先における内容や提供サービス、遷移先で生じたトラブル等につきまして、開発者は一切の責任を負いかねます。
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         2. 英語 (English)
+         ========================================== -->
+    <div id="pane-en" class="lang-pane">
+      <section class="panel">
+        <h2>🎃 Make Every Trick-or-Treat Moment Magical!</h2>
+        <p class="lead-text">
+          Tap the button to draw a sweet "Treat" or a playful "Trick" challenge! Designed for family parties and Halloween events, this interactive lucky draw app lets you freely customize prizes and challenges to fit your gathering.
+        </p>
+
+        <div class="tt-grid">
+          <div class="tt-card treat">
+            <div class="tt-card-title">🍬 Sweet Prizes (TREAT!)</div>
+            <p>Hand out chocolates, candies, or special goodies! Customize the prize list to match the treats you have ready at home.</p>
+          </div>
+          <div class="tt-card trick">
+            <div class="tt-card-title">👻 Fun Challenges (TRICK!)</div>
+            <p>From making a spooky monster face to striking a silly pose—lighthearted mini-challenges that get everyone laughing.</p>
+          </div>
+        </div>
+
+        <h2>✨ How to Play in 3 Easy Steps</h2>
+        <ol class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <strong>Let the child tap the main draw button</strong>
+            <span class="step-sub">Simple one-tap interface—easy and safe for kids of all ages to enjoy.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>Treats: Hand out sweets! Tricks: Do the fun challenge!</strong>
+            <span class="step-sub">Turns ordinary candy handouts into an exciting party game.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>Use checkboxes (☑) to toggle items anytime</strong>
+            <span class="step-sub">Ran out of a specific candy, or want to skip certain challenges for younger kids? Simply uncheck items on the fly without deleting them.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>🛡️ Safety, Terms &amp; Privacy</h2>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <strong>100% Privacy-Friendly (No Personal Data Transmitted)</strong>
+            No sign-ups required. No personal data or device information is ever collected or transmitted externally.
+          </div>
+          <div class="safety-item">
+            <strong>Terms of Use &amp; Supervision</strong>
+            Please use this app under adult supervision. The developer assumes no responsibility for any incidents arising from the use of this application.
+          </div>
+        </div>
+        <div class="ad-note">
+          * The developer assumes no responsibility for the content, services, or issues arising from third-party websites accessed via in-app banner ads.
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         3. 中南米スペイン語 (Español - Latinoamérica)
+         ========================================== -->
+    <div id="pane-es" class="lang-pane">
+      <section class="panel">
+        <h2>🎃 ¡Dale más emoción a tu fiesta de Halloween!</h2>
+        <p class="lead-text">
+          ¡Solo toca el botón para descubrir si toca un rico "Dulce" o un divertido "Reto"! Una aplicación de sorteo interactivo ideal para fiestas familiares y eventos de Halloween, donde puedes personalizar los premios y retos a tu gusto.
+        </p>
+
+        <div class="tt-grid">
+          <div class="tt-card treat">
+            <div class="tt-card-title">🍬 ¡Dulces y Premios! (DULCE)</div>
+            <p>¡Entrega chocolates, caramelos o sorpresas! Adapta la lista fácilmente según las golosinas que tengas preparadas en casa.</p>
+          </div>
+          <div class="tt-card trick">
+            <div class="tt-card-title">👻 ¡Retos Divertidos! (TRUCO)</div>
+            <p>Hacer cara de monstruo, bailar o imitar a un fantasma: pequeñas travesuras sanas para reír en familia y con amigos.</p>
+          </div>
+        </div>
+
+        <h2>✨ Cómo jugar en 3 pasos sencillos</h2>
+        <ol class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <strong>Deja que los niños toquen el botón principal</strong>
+            <span class="step-sub">Pantalla sencilla de un solo toque, pensada para que cualquiera pueda participar al instante.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>Dulces: ¡Entrega el premio! Retos: ¡A cumplir la travesura!</strong>
+            <span class="step-sub">Convierte el momento de repartir dulces en un juego lleno de emoción.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>Usa las casillas (☑) para activar o desactivar opciones al instante</strong>
+            <span class="step-sub">¿Se acabó algún dulce o prefieres omitir un reto para los más pequeños? Desmarca la casilla temporalmente sin borrar tu lista.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>🛡️ Guía de Seguridad, Términos y Privacidad</h2>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <strong>Privacidad Total (No se envían datos personales)</strong>
+            Sin registros ni cuentas. Ningún dato personal de tu celular o dispositivo se envía al exterior.
+          </div>
+          <div class="safety-item">
+            <strong>Términos de Servicio</strong>
+            Se recomienda usar la aplicación bajo la supervisión de un adulto. El desarrollador no asume responsabilidad por incidentes derivados de su uso.
+          </div>
+        </div>
+        <div class="ad-note">
+          * El desarrollador no asume ninguna responsabilidad por el contenido, servicios o problemas en sitios de terceros a los que se acceda a través de los anuncios en la aplicación.
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         4. ブラジルポルトガル語 (Português - Brasil)
+         ========================================== -->
+    <div id="pane-pt" class="lang-pane">
+      <section class="panel">
+        <h2>🎃 Deixe sua festa de Halloween muito mais divertida!</h2>
+        <p class="lead-text">
+          Basta tocar no botão para sortear um "Doce" delicioso ou uma "Travessura" super divertida! Um aplicativo de sorteio interativo perfeito para festas em família e eventos de Halloween, permitindo personalizar os prêmios e desafios do seu jeito.
+        </p>
+
+        <div class="tt-grid">
+          <div class="tt-card treat">
+            <div class="tt-card-title">🍬 Doces e Prêmios! (DOCES)</div>
+            <p>Entregue chocolates, balas ou lembrancinhas! Você pode editar a lista facilmente de acordo com as guloseimas que tiver em casa.</p>
+          </div>
+          <div class="tt-card trick">
+            <div class="tt-card-title">👻 Desafios Divertidos! (TRAVESSURAS)</div>
+            <p>Fazer careta de monstro, imitar um fantasma ou fazer uma pose engraçada: brincadeiras leves para animar toda a turma.</p>
+          </div>
+        </div>
+
+        <h2>✨ Como brincar em 3 passos fáceis</h2>
+        <ol class="step-list">
+          <li>
+            <span class="step-num">1</span>
+            <strong>Peça para a criança tocar no botão principal na tela</strong>
+            <span class="step-sub">Visual simples de apenas um toque, seguro e fácil de usar em qualquer celular.</span>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>Doces: Entregue o prêmio! Desafios: Hora da brincadeira!</strong>
+            <span class="step-sub">Transforma a entrega de doces em uma brincadeira cheia de surpresas.</span>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>Use as caixas de seleção (☑) para ativar ou desativar itens na hora</strong>
+            <span class="step-sub">Acabou algum doce específico ou quer pular um desafio para as crianças menores? Basta desmarcar a opção temporariamente sem precisar apagar nada.</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="panel">
+        <h2>🛡️ Segurança, Termos de Uso e Privacidade</h2>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <strong>Privacidade Garantida (Nenhum dado pessoal é transmitido)</strong>
+            Sem necessidade de cadastro. Nenhuma informação pessoal do seu celular ou aparelho é coletada ou enviada para fora.
+          </div>
+          <div class="safety-item">
+            <strong>Termos de Serviço</strong>
+            Utilize o aplicativo sempre sob a supervisão de um adulto. O desenvolvedor não se responsabiliza por eventuais incidentes decorrentes do uso.
+          </div>
+        </div>
+        <div class="ad-note">
+          * O desenvolvedor não assume responsabilidade pelo conteúdo, serviços ou problemas em sites de terceiros acessados através de banners de anúncios exibidos no aplicativo.
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         共通：最新情報（LATEST UPDATES）
+         ========================================== -->
+    <section class="panel" id="updates">
+      <h2>📢 LATEST UPDATES / 最新情報</h2>
+      <ul class="news-list">
+        <!-- ▼ 新しい情報を追加する際は、この <li>〜</li> をコピーして一番上に貼り付けてください ▼ -->
+        <li>
+          <span class="news-date">2026/10/XX</span>
+          「ハロウィンくじ (Halloween lucky draw)」公式ページリニューアル（Google Play 近日公開予定）
+          <span class="news-sub-en">Halloween lucky draw official page renewed. (Google Play release coming soon)</span>
+        </li>
+        <li>
+          <span class="news-date">2026/10/XX</span>
+          姉妹アプリ「ゴーストサーチカメラ (Ghost Search Camera)」公開
+          <a class="inline-link" href="https://mizotan.github.io/ghostsearchcamera/">HP →</a>
+          <!-- <a class="inline-link" href="https://play.google.com/store/apps/details?id=パッケージ名">App →</a> -->
+          <span class="news-sub-en">Sister app "Ghost Search Camera" official page launched.</span>
+        </li>
       </ul>
-      <span class="note">※本アプリ内に表示されるバナー広告のリンク先における内容や提供サービス、遷移先で生じたトラブル等につきまして、開発者は一切の責任を負いかねます。</span>
     </section>
 
-    <!-- 英語 (English) -->
-    <section>
-      <h2>🇺🇸 English</h2>
-      
-      <h3>How to Use</h3>
-      <ol>
-        <li>Let the child tap the draw button.</li>
-        <li>Treats: Hand out sweet! Tricks: Do the challenge!</li>
-        <li>Use checkboxes (☑) to temporarily disable items.</li>
-      </ol>
-
-      <h3>Terms of Service</h3>
-      <ul>
-        <li>Adult supervision required.</li>
-        <li>Developer assumes no responsibility for incidents.</li>
+    <!-- ==========================================
+         共通：盆栽企画リンク・法務・連絡先
+         ========================================== -->
+    <section class="panel" id="portal">
+      <h2>🏠 STUDIO &amp; LEGAL / 企画・サポート</h2>
+      <ul class="links-list">
+        <li>
+          <a class="link-btn" href="https://mizotan.github.io/bonsaiproject/">
+            🏠 BONSAI PROJECT (盆栽企画 公式ポータルサイト) →
+          </a>
+        </li>
+        <li>
+          <a class="link-btn" href="https://mizotan.github.io/privacypolicy/">
+            🌐 Privacy Policy (多言語プライバシーポリシー一覧 / 50+ Languages) →
+          </a>
+        </li>
       </ul>
 
-      <h3>Privacy Policy</h3>
-      <ul>
-        <li>No personal data transmitted.</li>
-      </ul>
-      <span class="note">* The developer assumes no responsibility for the content, services, or issues arising from third-party websites accessed via banner ads.</span>
+      <div class="studio-block">
+        <a href="https://mizotan.github.io/bonsaiproject/">
+          <img src="rogo.png" alt="盆栽企画 presents" class="studio-logo">
+        </a>
+        <div>
+          <div style="color: var(--accent-gold); font-weight: bold; font-size: 13.5px;">BONSAI PROJECT — 盆栽企画</div>
+          <div style="color: var(--text-muted); font-size: 12px;">Experimental App Development &amp; Creative Studio</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-info">
+          Inquiries / Contact: bonsai.project.2026@gmail.com
+        </div>
+      </div>
     </section>
 
-    <!-- 中南米スペイン語 (Español) -->
-    <section>
-      <h2>🌎 Español (Latinoamérica)</h2>
-      
-      <h3>Cómo Usar</h3>
-      <ol>
-        <li>Toque el botón principal.</li>
-        <li>Dulces: ¡Entrega el premio! Retos: ¡Haz la broma!</li>
-        <li>Usa las casillas (☑) para desactivar artículos temporalmente.</li>
-      </ol>
+    <!-- ==========================================
+         下部：多言語サブページリンク用スペース（囲みなし・20〜50言語へ随時拡張可能）
+         ========================================== -->
+    <div class="lang-space">
+      <div class="lang-space-label">LANGUAGE SELECTION &amp; SUBPAGES / 多言語リンク:</div>
+      <div class="lang-links">
+        <!-- ページ内タブへのクイック切り替えリンク -->
+        <a href="#pane-ja" onclick="switchLangByCode('ja'); return false;">[JA 日本語]</a>
+        <a href="#pane-en" onclick="switchLangByCode('en'); return false;">[EN English]</a>
+        <a href="#pane-es" onclick="switchLangByCode('es'); return false;">[ES-419 Español]</a>
+        <a href="#pane-pt" onclick="switchLangByCode('pt'); return false;">[PT-BR Português]</a>
 
-      <h3>Términos de Servicio</h3>
-      <ul>
-        <li>Requiere supervisión de un adulto.</li>
-        <li>El desarrollador no asume responsabilidad.</li>
-      </ul>
-
-      <h3>Privacidad</h3>
-      <ul>
-        <li>No se transmiten datos personales.</li>
-      </ul>
-      <span class="note">* El desarrollador no asume ninguna responsabilidad por el contenido o problemas en sitios de terceros a los que se acceda a través de anuncios.</span>
-    </section>
-
-    <!-- ブラジルポルトガル語 (Português) -->
-    <section>
-      <h2>🇧🇷 Português (Brasil)</h2>
-      
-      <h3>Como Usar</h3>
-      <ol>
-        <li>Toque no botão principal.</li>
-        <li>Doces: Entregue o prêmio! Desafios: Faça a brincadeira!</li>
-        <li>Use as caixas (☑) para desativar itens temporariamente.</li>
-      </ol>
-
-      <h3>Termos de Serviço</h3>
-      <ul>
-        <li>Supervisão de adultos necessária.</li>
-        <li>O desenvolvedor não se responsabiliza por incidentes.</li>
-      </ul>
-
-      <h3>Privacidade</h3>
-      <ul>
-        <li>Nenhum dado pessoal é transmitido.</li>
-      </ul>
-      <span class="note">* O desenvolvedor não assume responsabilidade por conteúdo ou problemas em sites de terceiros acessados através de anúncios no aplicativo.</span>
-    </section>
+        <!-- ▼ 今後20〜50言語の1Pサブページを追加する場合は、以下のようにコメントを解除して並べてください ▼ -->
+        <!--
+        <a href="./da/da_information.html">[DA]</a>
+        <a href="./de/de_information.html">[DE]</a>
+        <a href="./es/es_information.html">[ES]</a>
+        <a href="./fi/fi_information.html">[FI]</a>
+        <a href="./fr/fr_information.html">[FR]</a>
+        <a href="./hi/hi_information.html">[HI]</a>
+        <a href="./id/id_information.html">[ID]</a>
+        <a href="./it/it_information.html">[IT]</a>
+        <a href="./kk/kk_information.html">[KK]</a>
+        <a href="./mn/mn_information.html">[MN]</a>
+        <a href="./ms/ms_information.html">[MS]</a>
+        <a href="./nl/nl_information.html">[NL]</a>
+        <a href="./no/no_information.html">[NO]</a>
+        <a href="./pl/pl_information.html">[PL]</a>
+        <a href="./pt/pt_information.html">[PT]</a>
+        <a href="./ro/ro_information.html">[RO]</a>
+        <a href="./ru/ru_information.html">[RU]</a>
+        <a href="./sv/sv_information.html">[SV]</a>
+        <a href="./th/th_information.html">[TH]</a>
+        <a href="./tl/tl_information.html">[TL]</a>
+        <a href="./tr/tr_information.html">[TR]</a>
+        <a href="./uk/uk_information.html">[UK]</a>
+        <a href="./vi/vi_information.html">[VI]</a>
+        -->
+      </div>
+    </div>
 
     <!-- フッター -->
     <footer>
@@ -278,5 +889,34 @@
     </footer>
 
   </div>
+
+  <script>
+    // タブボタンによる言語切り替え
+    function switchLang(lang, btnEl) {
+      document.querySelectorAll('.lang-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.lang-tab-btn').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById('pane-' + lang);
+      if (target) target.classList.add('active');
+      if (btnEl) btnEl.classList.add('active');
+    }
+
+    // 下部リンクや初期自動判定からの言語切り替え
+    function switchLangByCode(lang) {
+      const btns = document.querySelectorAll('.lang-tab-btn');
+      const map = { ja: 0, en: 1, es: 2, pt: 3 };
+      if (map[lang] !== undefined && btns[map[lang]]) {
+        switchLang(lang, btns[map[lang]]);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // ブラウザの言語設定に応じた初期タブの自動選択（日・英・西・葡）
+    (function autoDetectLang() {
+      const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      if (navLang.startsWith('es')) switchLangByCode('es');
+      else if (navLang.startsWith('pt')) switchLangByCode('pt');
+      else if (navLang.startsWith('en')) switchLangByCode('en');
+    })();
+  </script>
 </body>
 </html>
