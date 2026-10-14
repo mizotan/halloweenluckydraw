@@ -1,9 +1,78 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halloween lucky draw（ハロウィンくじ）— BONSAI PROJECT</title>
+  <title>Halloween lucky draw（ハロウィンくじ）公式 — 盆栽企画 BONSAI PROJECT</title>
+
+<!-- ★ ハロウィン特別なおまじない (Hidden Easter Egg) ★ -->
+  <!-- 🎃👻 TRICK OR TREAT! 素敵なハロウィンパーティーになりますように 🍬✨ -->
+  <meta name="magic-spell" content="Trick or Treat!">
+
+  <!-- 1. 基本SEO・クローラー制御 -->
+  <meta name="description" content="ハロウィンくじ（Halloween lucky draw）公式ページ。タップひとつで「お菓子(あたり)」か「いたずら(ミニチャレンジ)」が出るカスタムおみくじアプリ。出目のON/OFF調整・個人情報送信なしの安心設計。">
+  <meta name="keywords" content="Halloween lucky draw,ハロウィンくじ,トリックオアトリート,Trick or Treat,おみくじアプリ,盆栽企画,BONSAI PROJECT">
+  <meta name="author" content="BONSAI PROJECT (盆栽企画)">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#120822">
+
+  <!-- 2. 正規URL・多言語アノテーション -->
+  <link rel="canonical" href="https://mizotan.github.io/halloweenluckydraw/">
+  <link rel="alternate" hreflang="ja" href="https://mizotan.github.io/halloweenluckydraw/">
+  <link rel="alternate" hreflang="en" href="https://mizotan.github.io/halloweenluckydraw/">
+  <link rel="alternate" hreflang="es-419" href="https://mizotan.github.io/halloweenluckydraw/">
+  <link rel="alternate" hreflang="pt-BR" href="https://mizotan.github.io/halloweenluckydraw/">
+  <link rel="alternate" hreflang="x-default" href="https://mizotan.github.io/halloweenluckydraw/">
+
+  <!-- 3. ファビコン（Google検索結果一覧のアイコン表示用） -->
+  <link rel="icon" type="image/png" href="512x512.png">
+  <link rel="apple-touch-icon" href="512x512.png">
+
+  <!-- 4. OGP (Open Graph Protocol) / Twitter Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BONSAI PROJECT — 盆栽企画">
+  <meta property="og:title" content="Halloween lucky draw（ハロウィンくじ）— BONSAI PROJECT">
+  <meta property="og:description" content="タップひとつで「お菓子」か「いたずらチャレンジ」！出目のカスタム＆ON/OFF調整ができるハロウィンおみくじアプリ。">
+  <meta property="og:url" content="https://mizotan.github.io/halloweenluckydraw/">
+  <meta property="og:image" content="https://mizotan.github.io/halloweenluckydraw/512x512.png">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="es_LA">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Halloween lucky draw（ハロウィンくじ）— BONSAI PROJECT">
+  <meta name="twitter:description" content="パーティーが盛り上がる！内容カスタム＆ON/OFF調整機能つきハロウィンおみくじアプリ。">
+  <meta name="twitter:image" content="https://mizotan.github.io/halloweenluckydraw/512x512.png">
+
+  <!-- 5. 構造化データ (JSON-LD / Schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Halloween lucky draw",
+    "alternateName": ["ハロウィンくじ", "ハロウィン ラッキー ドロー"],
+    "url": "https://mizotan.github.io/halloweenluckydraw/",
+    "image": "https://mizotan.github.io/halloweenluckydraw/512x512.png",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Android",
+    "description": "タップひとつで「お菓子(Treat)」か「いたずら(Trick)」が出る、内容カスタマイズ＆ON/OFF調整機能つきのハロウィンおみくじアプリ。個人情報の外部送信を行わない安心設計。",
+    "inLanguage": ["ja", "en", "es-419", "pt-BR"],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "BONSAI PROJECT",
+      "alternateName": "盆栽企画",
+      "url": "https://mizotan.github.io/bonsaiproject/",
+      "logo": "https://mizotan.github.io/halloweenluckydraw/rogo.png",
+      "email": "bonsai.project.2026@gmail.com"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --bg-color: #0d051a;
@@ -454,6 +523,11 @@
       object-fit: contain;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .studio-logo:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 14px rgba(255, 140, 56, 0.4);
     }
     .contact-info {
       font-size: 12.5px;
@@ -466,7 +540,7 @@
       background: rgba(15, 6, 28, 0.5);
     }
 
-    /* 下部：多言語サブページリンク用スペース（囲みなし・随時追加可能） */
+    /* 下部：多言語サブページリンク用スペース（囲みなし・20〜50言語へ随時拡張可能） */
     .lang-space {
       margin-top: 40px;
       padding: 8px 4px;
@@ -505,11 +579,11 @@
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <main class="wrap">
 
     <!-- ヒーローヘッダー -->
     <header class="brand-header">
-      <img src="512x512.png" alt="Halloween lucky draw" class="brand-logo">
+      <img src="512x512.png" alt="Halloween lucky draw（ハロウィンくじ）アプリアイコン" width="116" height="116" class="brand-logo">
       <h1 class="brand-title">Halloween lucky draw</h1>
       <p class="brand-catch">トリック・オア・トリート！カスタムおみくじ</p>
       <p class="brand-sub">Trick or Treat / ¡Dulce o Truco! / Doces ou Travessuras!</p>
@@ -552,9 +626,9 @@
     <!-- ==========================================
          1. 日本語 (Japanese)
          ========================================== -->
-    <div id="pane-ja" class="lang-pane active">
-      <section class="panel">
-        <h2>🎃 パーティーが盛り上がる！ハロウィンおみくじ</h2>
+    <div id="pane-ja" class="lang-pane active" lang="ja">
+      <section class="panel" aria-labelledby="ja-intro">
+        <h2 id="ja-intro">🎃 パーティーが盛り上がる！ハロウィンおみくじ</h2>
         <p class="lead-text">
           ボタンをタップするだけで「お菓子（あたり）」か「いたずら（ミニチャレンジ）」が飛び出す、ワクワク感たっぷりのハロウィン抽選アプリです。おうちのパーティーやイベントに合わせて、出る内容を自由にカスタマイズできます。
         </p>
@@ -570,8 +644,8 @@
           </div>
         </div>
 
-        <h2>✨ かんたん3ステップの使い方</h2>
-        <ol class="step-list">
+        <h2 id="ja-steps">✨ かんたん3ステップの使い方</h2>
+        <ol class="step-list" aria-labelledby="ja-steps">
           <li>
             <span class="step-num">1</span>
             <strong>お子様に「ぼたん」をタップしてもらいます</strong>
@@ -590,8 +664,8 @@
         </ol>
       </section>
 
-      <section class="panel">
-        <h2>🛡️ ご利用ガイド・プライバシー設計</h2>
+      <section class="panel" aria-labelledby="ja-safety">
+        <h2 id="ja-safety">🛡️ ご利用ガイド・プライバシー設計</h2>
         <div class="safety-grid">
           <div class="safety-item">
             <strong>安心のクリーン設計（個人情報送信なし）</strong>
@@ -611,9 +685,9 @@
     <!-- ==========================================
          2. 英語 (English)
          ========================================== -->
-    <div id="pane-en" class="lang-pane">
-      <section class="panel">
-        <h2>🎃 Make Every Trick-or-Treat Moment Magical!</h2>
+    <div id="pane-en" class="lang-pane" lang="en">
+      <section class="panel" aria-labelledby="en-intro">
+        <h2 id="en-intro">🎃 Make Every Trick-or-Treat Moment Magical!</h2>
         <p class="lead-text">
           Tap the button to draw a sweet "Treat" or a playful "Trick" challenge! Designed for family parties and Halloween events, this interactive lucky draw app lets you freely customize prizes and challenges to fit your gathering.
         </p>
@@ -629,8 +703,8 @@
           </div>
         </div>
 
-        <h2>✨ How to Play in 3 Easy Steps</h2>
-        <ol class="step-list">
+        <h2 id="en-steps">✨ How to Play in 3 Easy Steps</h2>
+        <ol class="step-list" aria-labelledby="en-steps">
           <li>
             <span class="step-num">1</span>
             <strong>Let the child tap the main draw button</strong>
@@ -649,8 +723,8 @@
         </ol>
       </section>
 
-      <section class="panel">
-        <h2>🛡️ Safety, Terms &amp; Privacy</h2>
+      <section class="panel" aria-labelledby="en-safety">
+        <h2 id="en-safety">🛡️ Safety, Terms &amp; Privacy</h2>
         <div class="safety-grid">
           <div class="safety-item">
             <strong>100% Privacy-Friendly (No Personal Data Transmitted)</strong>
@@ -670,9 +744,9 @@
     <!-- ==========================================
          3. 中南米スペイン語 (Español - Latinoamérica)
          ========================================== -->
-    <div id="pane-es" class="lang-pane">
-      <section class="panel">
-        <h2>🎃 ¡Dale más emoción a tu fiesta de Halloween!</h2>
+    <div id="pane-es" class="lang-pane" lang="es-419">
+      <section class="panel" aria-labelledby="es-intro">
+        <h2 id="es-intro">🎃 ¡Dale más emoción a tu fiesta de Halloween!</h2>
         <p class="lead-text">
           ¡Solo toca el botón para descubrir si toca un rico "Dulce" o un divertido "Reto"! Una aplicación de sorteo interactivo ideal para fiestas familiares y eventos de Halloween, donde puedes personalizar los premios y retos a tu gusto.
         </p>
@@ -688,8 +762,8 @@
           </div>
         </div>
 
-        <h2>✨ Cómo jugar en 3 pasos sencillos</h2>
-        <ol class="step-list">
+        <h2 id="es-steps">✨ Cómo jugar en 3 pasos sencillos</h2>
+        <ol class="step-list" aria-labelledby="es-steps">
           <li>
             <span class="step-num">1</span>
             <strong>Deja que los niños toquen el botón principal</strong>
@@ -708,8 +782,8 @@
         </ol>
       </section>
 
-      <section class="panel">
-        <h2>🛡️ Guía de Seguridad, Términos y Privacidad</h2>
+      <section class="panel" aria-labelledby="es-safety">
+        <h2 id="es-safety">🛡️ Guía de Seguridad, Términos y Privacidad</h2>
         <div class="safety-grid">
           <div class="safety-item">
             <strong>Privacidad Total (No se envían datos personales)</strong>
@@ -729,9 +803,9 @@
     <!-- ==========================================
          4. ブラジルポルトガル語 (Português - Brasil)
          ========================================== -->
-    <div id="pane-pt" class="lang-pane">
-      <section class="panel">
-        <h2>🎃 Deixe sua festa de Halloween muito mais divertida!</h2>
+    <div id="pane-pt" class="lang-pane" lang="pt-BR">
+      <section class="panel" aria-labelledby="pt-intro">
+        <h2 id="pt-intro">🎃 Deixe sua festa de Halloween muito mais divertida!</h2>
         <p class="lead-text">
           Basta tocar no botão para sortear um "Doce" delicioso ou uma "Travessura" super divertida! Um aplicativo de sorteio interativo perfeito para festas em família e eventos de Halloween, permitindo personalizar os prêmios e desafios do seu jeito.
         </p>
@@ -747,8 +821,8 @@
           </div>
         </div>
 
-        <h2>✨ Como brincar em 3 passos fáceis</h2>
-        <ol class="step-list">
+        <h2 id="pt-steps">✨ Como brincar em 3 passos fáceis</h2>
+        <ol class="step-list" aria-labelledby="pt-steps">
           <li>
             <span class="step-num">1</span>
             <strong>Peça para a criança tocar no botão principal na tela</strong>
@@ -767,8 +841,8 @@
         </ol>
       </section>
 
-      <section class="panel">
-        <h2>🛡️ Segurança, Termos de Uso e Privacidade</h2>
+      <section class="panel" aria-labelledby="pt-safety">
+        <h2 id="pt-safety">🛡️ Segurança, Termos de Uso e Privacidade</h2>
         <div class="safety-grid">
           <div class="safety-item">
             <strong>Privacidade Garantida (Nenhum dado pessoal é transmitido)</strong>
@@ -788,21 +862,21 @@
     <!-- ==========================================
          共通：最新情報（LATEST UPDATES）
          ========================================== -->
-    <section class="panel" id="updates">
-      <h2>📢 LATEST UPDATES / 最新情報</h2>
+    <section class="panel" id="updates" aria-labelledby="heading-updates">
+      <h2 id="heading-updates">📢 LATEST UPDATES / 最新情報</h2>
       <ul class="news-list">
         <!-- ▼ 新しい情報を追加する際は、この <li>〜</li> をコピーして一番上に貼り付けてください ▼ -->
         <li>
-          <span class="news-date">2026/10/XX</span>
+          <span class="news-date">2026/10</span>
           「ハロウィンくじ (Halloween lucky draw)」公式ページリニューアル（Google Play 近日公開予定）
-          <span class="news-sub-en">Halloween lucky draw official page renewed. (Google Play release coming soon)</span>
+          <span class="news-sub-en" lang="en">Halloween lucky draw official page renewed. (Google Play release coming soon)</span>
         </li>
         <li>
-          <span class="news-date">2026/10/XX</span>
+          <span class="news-date">2026/10</span>
           姉妹アプリ「ゴーストサーチカメラ (Ghost Search Camera)」公開
           <a class="inline-link" href="https://mizotan.github.io/ghostsearchcamera/">HP →</a>
           <!-- <a class="inline-link" href="https://play.google.com/store/apps/details?id=パッケージ名">App →</a> -->
-          <span class="news-sub-en">Sister app "Ghost Search Camera" official page launched.</span>
+          <span class="news-sub-en" lang="en">Sister app "Ghost Search Camera" official page launched.</span>
         </li>
       </ul>
     </section>
@@ -810,8 +884,8 @@
     <!-- ==========================================
          共通：盆栽企画リンク・法務・連絡先
          ========================================== -->
-    <section class="panel" id="portal">
-      <h2>🏠 STUDIO &amp; LEGAL / 企画・サポート</h2>
+    <section class="panel" id="portal" aria-labelledby="heading-portal">
+      <h2 id="heading-portal">🏠 STUDIO &amp; LEGAL / 企画・サポート</h2>
       <ul class="links-list">
         <li>
           <a class="link-btn" href="https://mizotan.github.io/bonsaiproject/">
@@ -827,11 +901,11 @@
 
       <div class="studio-block">
         <a href="https://mizotan.github.io/bonsaiproject/">
-          <img src="rogo.png" alt="盆栽企画 presents" class="studio-logo">
+          <img src="rogo.png" alt="盆栽企画 presents (BONSAI PROJECT)" width="58" height="58" loading="lazy" class="studio-logo">
         </a>
         <div>
           <div style="color: var(--accent-gold); font-weight: bold; font-size: 13.5px;">BONSAI PROJECT — 盆栽企画</div>
-          <div style="color: var(--text-muted); font-size: 12px;">Experimental App Development &amp; Creative Studio</div>
+          <div style="color: var(--text-muted); font-size: 12px;" lang="en">Experimental App Development &amp; Creative Studio</div>
         </div>
       </div>
 
@@ -845,50 +919,50 @@
     <!-- ==========================================
          下部：多言語サブページリンク用スペース（囲みなし・20〜50言語へ随時拡張可能）
          ========================================== -->
-    <div class="lang-space">
+    <nav class="lang-space" aria-label="Language Selection and Subpages">
       <div class="lang-space-label">LANGUAGE SELECTION &amp; SUBPAGES / 多言語リンク:</div>
       <div class="lang-links">
         <!-- ページ内タブへのクイック切り替えリンク -->
-        <a href="#pane-ja" onclick="switchLangByCode('ja'); return false;">[JA 日本語]</a>
-        <a href="#pane-en" onclick="switchLangByCode('en'); return false;">[EN English]</a>
-        <a href="#pane-es" onclick="switchLangByCode('es'); return false;">[ES-419 Español]</a>
-        <a href="#pane-pt" onclick="switchLangByCode('pt'); return false;">[PT-BR Português]</a>
+        <a href="#pane-ja" hreflang="ja" onclick="switchLangByCode('ja'); return false;">[JA 日本語]</a>
+        <a href="#pane-en" hreflang="en" onclick="switchLangByCode('en'); return false;">[EN English]</a>
+        <a href="#pane-es" hreflang="es-419" onclick="switchLangByCode('es'); return false;">[ES-419 Español]</a>
+        <a href="#pane-pt" hreflang="pt-BR" onclick="switchLangByCode('pt'); return false;">[PT-BR Português]</a>
 
         <!-- ▼ 今後20〜50言語の1Pサブページを追加する場合は、以下のようにコメントを解除して並べてください ▼ -->
         <!--
-        <a href="./da/da_information.html">[DA]</a>
-        <a href="./de/de_information.html">[DE]</a>
-        <a href="./es/es_information.html">[ES]</a>
-        <a href="./fi/fi_information.html">[FI]</a>
-        <a href="./fr/fr_information.html">[FR]</a>
-        <a href="./hi/hi_information.html">[HI]</a>
-        <a href="./id/id_information.html">[ID]</a>
-        <a href="./it/it_information.html">[IT]</a>
-        <a href="./kk/kk_information.html">[KK]</a>
-        <a href="./mn/mn_information.html">[MN]</a>
-        <a href="./ms/ms_information.html">[MS]</a>
-        <a href="./nl/nl_information.html">[NL]</a>
-        <a href="./no/no_information.html">[NO]</a>
-        <a href="./pl/pl_information.html">[PL]</a>
-        <a href="./pt/pt_information.html">[PT]</a>
-        <a href="./ro/ro_information.html">[RO]</a>
-        <a href="./ru/ru_information.html">[RU]</a>
-        <a href="./sv/sv_information.html">[SV]</a>
-        <a href="./th/th_information.html">[TH]</a>
-        <a href="./tl/tl_information.html">[TL]</a>
-        <a href="./tr/tr_information.html">[TR]</a>
-        <a href="./uk/uk_information.html">[UK]</a>
-        <a href="./vi/vi_information.html">[VI]</a>
+        <a href="./da/da_information.html" hreflang="da">[DA]</a>
+        <a href="./de/de_information.html" hreflang="de">[DE]</a>
+        <a href="./es/es_information.html" hreflang="es">[ES]</a>
+        <a href="./fi/fi_information.html" hreflang="fi">[FI]</a>
+        <a href="./fr/fr_information.html" hreflang="fr">[FR]</a>
+        <a href="./hi/hi_information.html" hreflang="hi">[HI]</a>
+        <a href="./id/id_information.html" hreflang="id">[ID]</a>
+        <a href="./it/it_information.html" hreflang="it">[IT]</a>
+        <a href="./kk/kk_information.html" hreflang="kk">[KK]</a>
+        <a href="./mn/mn_information.html" hreflang="mn">[MN]</a>
+        <a href="./ms/ms_information.html" hreflang="ms">[MS]</a>
+        <a href="./nl/nl_information.html" hreflang="nl">[NL]</a>
+        <a href="./no/no_information.html" hreflang="no">[NO]</a>
+        <a href="./pl/pl_information.html" hreflang="pl">[PL]</a>
+        <a href="./pt/pt_information.html" hreflang="pt">[PT]</a>
+        <a href="./ro/ro_information.html" hreflang="ro">[RO]</a>
+        <a href="./ru/ru_information.html" hreflang="ru">[RU]</a>
+        <a href="./sv/sv_information.html" hreflang="sv">[SV]</a>
+        <a href="./th/th_information.html" hreflang="th">[TH]</a>
+        <a href="./tl/tl_information.html" hreflang="tl">[TL]</a>
+        <a href="./tr/tr_information.html" hreflang="tr">[TR]</a>
+        <a href="./uk/uk_information.html" hreflang="uk">[UK]</a>
+        <a href="./vi/vi_information.html" hreflang="vi">[VI]</a>
         -->
       </div>
-    </div>
+    </nav>
 
     <!-- フッター -->
     <footer>
       &copy; 2026 BONSAI PROJECT All Rights Reserved.
     </footer>
 
-  </div>
+  </main>
 
   <script>
     // タブボタンによる言語切り替え
@@ -910,8 +984,13 @@
       }
     }
 
-    // ブラウザの言語設定に応じた初期タブの自動選択（日・英・西・葡）
+    // URLハッシュ（#pane-es等）またはブラウザ言語設定に応じた初期タブの自動選択
     (function autoDetectLang() {
+      const hash = (window.location.hash || '').replace('#pane-', '');
+      if (['ja', 'en', 'es', 'pt'].includes(hash)) {
+        switchLangByCode(hash);
+        return;
+      }
       const navLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
       if (navLang.startsWith('es')) switchLangByCode('es');
       else if (navLang.startsWith('pt')) switchLangByCode('pt');
